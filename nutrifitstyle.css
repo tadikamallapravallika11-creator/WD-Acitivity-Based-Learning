@@ -1,0 +1,675 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #2f855a;
+    --dark-green: #174d35;
+    --light-green: #eaf5e9;
+    --orange: #f4a261;
+    --text: #35443a;
+    --muted: #738078;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: #f8fbf6;
+    min-height: 100vh;
+}
+
+
+header {
+    width: 100%;
+    min-height: 82px;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: var(--white);
+    border-bottom: 1px solid #e5eee4;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: var(--dark-green);
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+
+.page {
+    display: none;
+    min-height: 570px;
+    padding: 55px 7%;
+    animation: appear 0.35s ease;
+}
+
+
+#home {
+    display: flex;
+}
+
+
+.page:target {
+    display: block;
+}
+
+
+body:has(.page:target) #home:not(:target) {
+    display: none;
+}
+
+
+.home-page {
+    align-items: center;
+    justify-content: space-between;
+    gap: 55px;
+    background: linear-gradient(120deg, #f4faf0, #ffffff);
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 580px;
+}
+
+.tagline {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.hero-content h1 {
+    font-size: clamp(42px, 5vw, 65px);
+    line-height: 1.12;
+    color: var(--dark-green);
+    margin-bottom: 22px;
+}
+
+.hero-content h1 span,
+.page-heading h1 span {
+    color: var(--green);
+}
+
+.hero-content > p:not(.tagline) {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 490px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: var(--green);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background: var(--white);
+    color: var(--green);
+    border: 1px solid var(--green);
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.features h3 {
+    font-size: 14px;
+    color: var(--dark-green);
+    margin-bottom: 7px;
+}
+
+.features p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 490px;
+    position: relative;
+}
+
+.hero-image > img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 45% 45% 18px 18px;
+    box-shadow: 0 20px 45px #174d351a;
+}
+
+.image-label {
+    position: absolute;
+    left: -25px;
+    bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 17px 22px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px #00000012;
+}
+
+.image-label > span {
+    font-size: 30px;
+}
+
+.image-label strong {
+    color: var(--dark-green);
+}
+
+.image-label p {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+.page-heading {
+    text-align: center;
+    margin: 5px auto 38px;
+}
+
+.page-heading .tagline {
+    margin-bottom: 12px;
+}
+
+.page-heading h1 {
+    color: var(--dark-green);
+    font-size: clamp(30px, 4vw, 43px);
+    margin-bottom: 13px;
+}
+
+.page-heading > p:last-child {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    overflow: hidden;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 6px 25px #174d350c;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #174d3518;
+}
+
+.card > img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 21px;
+}
+
+.badge {
+    display: inline-block;
+    color: var(--green);
+    background: var(--light-green);
+    padding: 7px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.card-content h3 {
+    color: var(--dark-green);
+    font-size: 19px;
+    margin: 15px 0 10px;
+}
+
+.card-content > p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 48px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #edf1ec;
+    font-size: 13px;
+}
+
+.card-footer strong {
+    color: var(--green);
+}
+
+.note {
+    max-width: 1100px;
+    margin: 20px auto 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+.meal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.meal-card {
+    background: var(--white);
+    padding: 27px 20px;
+    border-radius: 14px;
+    border: 1px solid #e6efe3;
+    text-align: center;
+}
+
+.meal-icon {
+    font-size: 42px;
+    margin-bottom: 16px;
+}
+
+.meal-card h3 {
+    color: var(--dark-green);
+    margin-bottom: 16px;
+}
+
+.meal-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 9px;
+}
+
+.meal-card p strong {
+    color: var(--text);
+}
+
+.meal-card > span {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--light-green);
+    color: var(--green);
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.info-box {
+    max-width: 1100px;
+    margin: 28px auto 0;
+    background: var(--light-green);
+    padding: 22px 25px;
+    border-radius: 12px;
+    line-height: 1.8;
+}
+
+.info-box h3 {
+    color: var(--dark-green);
+    margin-bottom: 7px;
+}
+
+.info-box p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* INGREDIENTS */
+.ingredient-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.ingredient-card {
+    text-align: center;
+    background: var(--white);
+    border: 1px solid #e6efe3;
+    border-radius: 14px;
+    padding: 28px 20px;
+    transition: 0.3s;
+}
+
+.ingredient-card:hover {
+    transform: translateY(-4px);
+    border-color: #9cc9a2;
+}
+
+.ingredient-icon {
+    font-size: 43px;
+    margin-bottom: 13px;
+}
+
+.ingredient-card h3 {
+    color: var(--dark-green);
+    margin-bottom: 10px;
+}
+
+.ingredient-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 13px;
+}
+
+.ingredient-card small {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+.tips-container {
+    max-width: 850px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 24px;
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid #e6efe3;
+}
+
+.tip > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--light-green);
+    color: var(--green);
+    font-weight: bold;
+}
+
+.tip h3 {
+    color: var(--dark-green);
+    font-size: 16px;
+    margin-bottom: 9px;
+}
+
+.tip p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* FOOD CATEGORIES */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.category-card {
+    text-decoration: none;
+    overflow: hidden;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 6px 20px #174d350c;
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-card > div {
+    padding: 18px;
+}
+
+.category-card h3 {
+    color: var(--dark-green);
+    margin-bottom: 8px;
+}
+
+.category-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 28px 20px;
+    background: var(--dark-green);
+    color: var(--white);
+}
+
+footer h2 {
+    margin-bottom: 9px;
+}
+
+footer p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #d6e8d9;
+}
+
+.copyright {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #ffffff25;
+}
+
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .home-page {
+        gap: 30px;
+    }
+
+    .hero-image > img {
+        height: 370px;
+    }
+
+    .meal-grid,
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card-container .card:last-child {
+        grid-column: 1 / -1;
+        max-width: 520px;
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 650px) {
+    header {
+        padding: 18px 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav {
+        gap: 12px 16px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .page {
+        padding: 35px 18px;
+        min-height: 570px;
+    }
+
+    .home-page {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 35px;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-content > p:not(.tagline) {
+        font-size: 15px;
+    }
+
+    .features {
+        gap: 18px;
+        margin-top: 30px;
+    }
+
+    .features h3 {
+        font-size: 12px;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+
+    .hero-image > img {
+        height: 300px;
+        border-radius: 25px;
+    }
+
+    .image-label {
+        left: 10px;
+        bottom: 12px;
+        padding: 12px;
+    }
+
+    .card-container,
+    .meal-grid,
+    .ingredient-grid,
+    .tips-container,
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-container .card:last-child {
+        grid-column: auto;
+        max-width: 100%;
+    }
+
+    .card > img,
+    .category-card img {
+        height: 220px;
+    }
+
+    .page-heading {
+        margin-bottom: 28px;
+    }
+
+    .page-heading h1 {
+        font-size: 31px;
+    }
+}
